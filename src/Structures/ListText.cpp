@@ -66,6 +66,10 @@ void ListText::printContent() {
 
 }
 
+Line *ListText::getFirst() {
+    return this->first;
+}
+
 Token::Token(string txt) {
     this->text = std::move(txt);
     this->next = nullptr;

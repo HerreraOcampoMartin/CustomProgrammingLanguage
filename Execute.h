@@ -5,11 +5,16 @@
 #include "src/Structures/ListText.h"
 #include "src/Reader.h"
 
+
 class Execute{
 private:
     ListText *allText;
+    string path;
 public:
-    void parseFile(const std::string& fileName);
+    explicit Execute(const string& fileName);
+    void start();
+    void searchCommands();
+    static bool verifyCommand(const string& command);
 };
 
 #endif //LENGUAJEPROGRAMACION_EXECUTE_H

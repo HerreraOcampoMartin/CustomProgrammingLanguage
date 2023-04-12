@@ -3,8 +3,12 @@
 
 int main(int argc, char **argv) {
 
-    auto *e = new Execute();
-    e->parseFile("prueba.mrt");
+    string file = argv[1];
+
+    auto *e = new Execute(file);
+    e->start();
+
+    std::cout << "Program executed without errors." << std::endl;
 
     return 0;
 }

@@ -38,7 +38,7 @@ private:
 public:
     void add(Line *node);
     void printContent();
-
+    Line *getFirst();
 };
 
 #endif //LENGUAJEPROGRAMACION_LISTTEXT_H

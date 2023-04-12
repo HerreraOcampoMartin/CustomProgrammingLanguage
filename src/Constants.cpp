@@ -7,3 +7,7 @@ string GET::Separators() {
 string GET::KeyChars() {
     return "()";
 }
+
+std::vector<string> GET::ListOfKeywords() {
+    return {"escribir", "ingresar"};
+}

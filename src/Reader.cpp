@@ -1,9 +1,8 @@
 #include "Reader.h"
+#include "Constants.h"
 #include <string>
 
 using std::getline;
-string borrar = " ;,";
-string separadores = "()";
 
 ListText *Reader::readFile(const string& path) {
     auto *list = new ListText();
@@ -29,7 +28,7 @@ Line *Reader::tokenizeString(const string& text) {
             esString = !esString;
         }
 
-        if(borrar.find(i) != std::string::npos && !esString){
+        if(GET::Separators().find(i) != std::string::npos && !esString){
             if(!temp.empty() ){
                 l->addToken(new Token(temp));
                 temp = "";
@@ -37,7 +36,7 @@ Line *Reader::tokenizeString(const string& text) {
             continue;
         }
 
-        if(separadores.find(i) != std::string::npos && !esString){
+        if(GET::KeyChars().find(i) != std::string::npos && !esString){
             if(temp.empty() ){
                 temp += i;
                 l->addToken(new Token(temp));

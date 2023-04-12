@@ -1,0 +1,2 @@
+escribir ("Hola mundo" 12)
+escribir  ( "Chau mundo" 90 "\n" )

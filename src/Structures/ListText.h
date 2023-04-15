@@ -2,6 +2,8 @@
 #define LENGUAJEPROGRAMACION_LISTTEXT_H
 
 #include <iostream>
+#include "ListParams.h"
+
 using std::string;
 
 class Token{
@@ -26,6 +28,7 @@ public:
     explicit Line();
     Line *getNext();
     Token *getFirstToken();
+    ListParams *getAllButFirst();
     void addToken(Token *t);
     void setNext(Line *node);
 };

@@ -1,6 +1,5 @@
 #include "Execute.h"
-#include "src/Constants.h"
-#include "src/Errors/BaseError.h"
+
 
 Execute::Execute(const string& fileName) {
     this->path = "../" + fileName;
@@ -8,32 +7,59 @@ Execute::Execute(const string& fileName) {
 }
 
 void Execute::start() {
+    this->coms = new ListCommand();
     this->allText = Reader::readFile(path);
-    Execute::searchCommands();
+    this->searchCommands();
+    this->executeCommands();
 }
 
 void Execute::searchCommands() {
     Line *l = this->allText->getFirst();
-    int lineCount = 1;
+    this->lineCount = 1;
 
     for(; l != nullptr; l = l->getNext()){
         Token *command = l->getFirstToken();
-        if (!verifyCommand(command->getText())){
+        if (verifyCommand(command->getText()) == -1){
             auto *be = new BaseError("command '" + command->getText() + "' not found.", this->path, lineCount);
             be->launchError();
         }
 
+        BaseCommand *temp = getType(command->getText(), l->getAllButFirst());
+        this->coms->add(new CommandNode(temp));
+
         lineCount++;
     }
+
+
 }
 
-bool Execute::verifyCommand(const string& command) {
+void Execute::executeCommands() {
+    auto *c = this->coms->getFirst();
+
+    for(; c != nullptr; c = c->getNext()){
+        c->getCommand()->execute();
+    }
+
+}
+
+int Execute::verifyCommand(const string& command) {
+    int cont = 0;
     for ( const string& com : GET::ListOfKeywords() ) {
         if(com == command) {
-            return true;
+            return cont;
         }
+        cont++;
     }
-    return false;
+    return -1;
+}
+
+BaseCommand *Execute::getType(const string& com, ListParams *p) {
+
+    if (com == GET::ListOfKeywords()[0]){
+        return new PrintCommand(p);
+    }
+
+    return nullptr;
 }
 
 

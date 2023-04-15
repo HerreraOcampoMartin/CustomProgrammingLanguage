@@ -9,5 +9,5 @@ string GET::KeyChars() {
 }
 
 std::vector<string> GET::ListOfKeywords() {
-    return {"escribir", "ingresar"};
+    return {"Escribir", "Ingresar"};
 }

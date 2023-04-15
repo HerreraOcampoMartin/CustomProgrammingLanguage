@@ -34,6 +34,17 @@ void Line::addToken(Token *t) {
     this->last = t;
 }
 
+ListParams *Line::getAllButFirst() {
+    auto *l = new ListParams();
+    Token *t = this->getFirstToken()->getNext();
+
+    for(; t != nullptr; t = t->getNext()){
+        l->add(new Params(t->getText()));
+    }
+
+    return l;
+}
+
 
 void ListText::add(Line *node) {
     this->size++;

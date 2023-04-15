@@ -1,2 +1,4 @@
-escribir ("Hola mundo" 12)
-escribir  ( "Chau mundo" 90 "\n" )
+Escribir "Hola mundo" 12
+Escribir   "Chau mundo" 90 "\n"
+Escribir "Holaaas"
+Escribir "Holaa, me llamo Martín"

@@ -9,7 +9,7 @@ BaseError::BaseError(string message, string file, int line) {
 
 void BaseError::launchError() {
     std::cout << "- ERROR: " << this->message << std::endl;
-    std::cout << "In file " << this->file << std::endl;
-    std::cout << "In line " << this->line << std::endl;
+    std::cout << "\t> In file " << this->file << std::endl;
+    std::cout << "\t> In line " << this->line << std::endl;
     exit(-1);
 }

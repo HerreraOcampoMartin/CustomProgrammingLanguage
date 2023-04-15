@@ -1,4 +1,4 @@
-Escribir "Hola mundo" 12
-Escribir   "Chau mundo" 90 "\n"
-Escribir "Holaaas"
-Escribir "Holaa, me llamo Martín"
+Write       "Hola mundo" 12
+Write   "Chau mundo" 90 "\n"
+Write "Holaaas"
+Write "Holaa, me llamo Martín"

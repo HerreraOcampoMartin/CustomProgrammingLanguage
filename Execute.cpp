@@ -44,7 +44,7 @@ void Execute::executeCommands() {
 
 int Execute::verifyCommand(const string& command) {
     int cont = 0;
-    for ( const string& com : GET::ListOfKeywords() ) {
+    for ( const string& com : GET::ListOfKeywords()) {
         if(com == command) {
             return cont;
         }
@@ -55,7 +55,7 @@ int Execute::verifyCommand(const string& command) {
 
 BaseCommand *Execute::getType(const string& com, ListParams *p) {
 
-    if (com == GET::ListOfKeywords()[0]){
+    if (com == GET::ListOfKeywords(0)){
         return new PrintCommand(p);
     }
 

@@ -3,7 +3,7 @@
 #include "../Constants.h"
 
 PrintCommand::PrintCommand(ListParams *p)
-    :BaseCommand(GET::ListOfKeywords()[0], p){
+    :BaseCommand(GET::ListOfKeywords(0), p){
 
 }
 
